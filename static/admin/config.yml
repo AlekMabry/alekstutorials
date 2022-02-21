@@ -9,12 +9,14 @@ public_folder: "images/uploads"
 collections:
   - name: settings
     label: Settings
-    file: src/content/site.yml
     files:
-      - {name: logo, label: Site Logo, widget: image}
-      - {name: author, label: Site Author, widget: text}
-      - {name: pfp, label: Profile Picture, widget: image}
-      - {name: about, label: About Description, widget: text}
+      - label: Portfolio Page
+        name: portfolio
+        file: src/content/portfolio.yml
+        fields:
+          - {name: logo, label: Site Logo, widget: image}
+          - {name: pfp, label: Profile Picture, widget: image}
+          - {name: about, label: About Description, widget: text}
   - name: project
     label: Project
     folder: src/content/projects
