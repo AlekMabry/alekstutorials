@@ -1,0 +1,53 @@
+/* Default state when mouse isn't hovering over any button */
+.navbar-desktop-button {
+    text-decoration: none;
+    color: $color-navbar-text;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1.5em 0.75em 1.5em 0.75em;
+    display: block;
+}
+
+/* When mouse is directly over the button */
+.navbar-desktop-button-hover {
+    text-decoration: none;
+    color: $color-navbar-text;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1.5em 0.75em 1.5em 0.75em;
+    background-color: red;
+}
+
+/* When mouse is hovering over another button */
+.navbar-desktop-button-background {
+    text-decoration: none;
+    color: $color-navbar-text-background;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1.5em 0.75em 1.5em 0.75em;
+}
+
+/* Underline hover animation. */
+@keyframes anim-navigation-link-underline-grow {
+    from {
+        width: 0%;
+        left: 50%;
+    }
+    to {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.navigation-link-underline {
+    background-color: white;
+    border: none;
+    width: calc(100% + 2em);
+    height: 0.2em;
+    position: relative;
+    margin-bottom: -0.2em;
+    left: -1em;
+    top: -0.2em;
+    animation-name: anim-navigation-link-underline-grow;
+    animation-duration: 0.15s;
+}

@@ -1,17 +1,27 @@
 backend:
   name: github
   branch: master
+  repo: AlekMabry/alekstutorials
 
 media_folder: "static/images/uploads"
 public_folder: "images/uploads"
 
 collections:
+  - name: settings
+    label: Settings
+    file: src/content/site.yml
+    files:
+      - {name: logo, label: Site Logo, widget: image}
+      - {name: author, label: Site Author, widget: text}
+      - {name: pfp, label: Profile Picture, widget: image}
+      - {name: about, label: About Description, widget: text}
   - name: project
     label: Project
-    folder: projects
+    folder: src/content/projects
     create: true
     fields:
       - {name: title, label: Title}
+      - {name: slug, label: Slug, widget: text}
       - {name: thumb, label: Thumbnail, widget: image}
       - {name: body, label: Body, widget: markdown}
   - name: tutorial

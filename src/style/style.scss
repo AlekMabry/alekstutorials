@@ -1,0 +1,13 @@
+/* Global style and layouts */
+@import './colors';
+@import './fonts';
+@import './variables';
+@import './reset';
+@import './layout';
+
+/* Components */
+@import '../components/Footer/Footer';
+@import '../components/NavbarDesktop/NavbarDesktop';
+@import '../components/NavbarDesktopLink/NavbarDesktopLink';
+@import '../components/ProjectGallery/ProjectGallery';
+@import '../components/ProjectThumbnail/ProjectThumbnail';

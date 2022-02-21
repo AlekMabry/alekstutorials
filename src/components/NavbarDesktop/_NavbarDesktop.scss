@@ -1,0 +1,22 @@
+.navbar-desktop-container {
+    background-color: $color-navbar;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar-desktop {
+    color: $color-navbar-text;
+    width: $page-width;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

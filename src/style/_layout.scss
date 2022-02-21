@@ -1,0 +1,10 @@
+.page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0em 1em 0em;
+}
+
+.page {
+    width: $page-width;
+}

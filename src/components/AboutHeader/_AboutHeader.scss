@@ -1,0 +1,19 @@
+.about-header {
+    display: flex;
+
+    background-color: $color-about-background;
+    padding: 1em;
+    font-family: $font-reading;
+
+    h2 {
+        font-family: $font-title;
+        font-size: 1.5em;
+    }
+
+    img {
+        width: 5em;
+        height: 5em;
+        border-radius: 1em;
+    }
+}
+
