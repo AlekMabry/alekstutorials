@@ -3,23 +3,28 @@ import { graphql } from 'gatsby';
 import '../style/style.scss';
 
 import Navbar from '../components/Navbar/Navbar';
+import AboutHeader from '../components/AboutHeader/AboutHeader';
 import ProjectGallery from '../components/ProjectGallery/ProjectGallery';
+import Footer from '../components/Footer/Footer';
+
+import about from '../content/portfolio.yml';
 
 export default function IndexPage( { data } ) {
   const projects= data.allMarkdownRemark.nodes;
 
   return (
-    <main>
-      <title>Alek's Tutorials</title>
-      <body>
-        <Navbar/>
-        <div class="page-container">
-          <div class="page">
-            <ProjectGallery projects={projects}/>
-          </div>
+    <body>
+      <div class='content'>
+      <Navbar logo={about.logo}/>
+      <div class="page-container">
+        <div class="page">
+          <AboutHeader about={about}/>
+          <ProjectGallery projects={projects}/>
         </div>
-      </body>
-    </main>
+      </div>
+      </div>
+      <Footer/>
+    </body>
   );
 }
 

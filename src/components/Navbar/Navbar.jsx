@@ -35,11 +35,11 @@ function Navbar(props) {
 
     if (width >= 800) {
         return (
-            <NavbarDesktop navigation={navigation}/>
+            <NavbarDesktop navigation={navigation} logo={props.logo}/>
         );
     } else {
         return (
-            <NavbarMobile navigation={navigation}/>
+            <NavbarMobile navigation={navigation} logo={props.logo}/>
         );
     }
 }

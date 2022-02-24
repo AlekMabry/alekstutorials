@@ -27,7 +27,7 @@ export default function Footer(props) {
                 </div>
                 <div class="footer-legal">
                     <a>Privacy Policy</a>
-                    <p>&nbsp;| Copyright &copy; {new Date().getFullYear()} {props.meta.author}</p>
+                    <p>&nbsp;| Copyright &copy; {new Date().getFullYear()} Aleksander Mabry</p>
                 </div>
             </footer>
         </div>
