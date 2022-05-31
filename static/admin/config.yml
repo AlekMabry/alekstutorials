@@ -17,8 +17,8 @@ collections:
           - {name: logo, label: Site Logo, widget: image}
           - {name: pfp, label: Profile Picture, widget: image}
           - {name: about, label: About Description, widget: text}
-  - name: project
-    label: Project
+  - name: "project"
+    label: "Project"
     folder: src/content/projects
     create: true
     fields:
@@ -26,9 +26,9 @@ collections:
       - {name: slug, label: Slug, widget: text}
       - {name: thumb, label: Thumbnail, widget: image}
       - {name: body, label: Body, widget: markdown}
-  - name: tutorial
-    label: Tutorial
-    folder: tutorials
+  - name: "tutorial"
+    label: "Tutorial"
+    folder: src/content/tutorials
     create: true
     fields :
       - {name: title, label: Title}

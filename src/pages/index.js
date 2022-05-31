@@ -10,7 +10,7 @@ import Footer from '../components/Footer/Footer';
 import about from '../content/portfolio.yml';
 
 export default function IndexPage( { data } ) {
-  const projects= data.allMarkdownRemark.nodes;
+  const projects = data.allMarkdownRemark.nodes;
 
   return (
     <body>
