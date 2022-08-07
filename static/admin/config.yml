@@ -20,6 +20,7 @@ collections:
   - name: "project"
     label: "Project"
     folder: src/content/projects
+    filter: {field: "collection", value: "projects"}
     create: true
     fields:
       - {name: title, label: Title}
@@ -29,6 +30,7 @@ collections:
   - name: "tutorial"
     label: "Tutorial"
     folder: src/content/tutorials
+    filter: {field: "collection", value: "tutorials"}
     create: true
     fields :
       - {name: title, label: Title}
