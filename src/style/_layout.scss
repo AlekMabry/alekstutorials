@@ -10,5 +10,28 @@
 }
 
 .page {
-    width: $page-width;
+    h1 {
+        font-family: $font-title;
+        color: white;
+        font-size: 2em;
+        margin-bottom: 1em;
+        padding: 0;
+        text-align: center;
+    }
 }
+
+/* Desktop settings. */
+@media only screen and (min-width: 961px) {
+    .page {
+        width: $page-width;
+    }
+}
+
+/* When the display dips below column width but isn't mobile. */
+@media only screen and (max-width: 1344px) {
+}
+
+/* Phone and Tablet settings. */
+@media only screen and (max-width: 960px) {
+}
+

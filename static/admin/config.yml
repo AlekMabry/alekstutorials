@@ -22,18 +22,36 @@ collections:
     folder: src/content/projects
     create: true
     fields:
-        collection: projects
       - {name: title, label: Title}
       - {name: slug, label: Slug, widget: text}
+      - {name: date, label: Date, widget: datetime, date_format: 'YYYY.MM', default: '06.2015'}
+      - {name: keywords, label: Keywords, widget: list}
       - {name: thumb, label: Thumbnail, widget: image}
       - {name: body, label: Body, widget: markdown}
+      - {name: collection, label: Collection (Don't edit!), widget: string, default: projects}
   - name: "tutorial"
     label: "Tutorial"
     folder: src/content/tutorials
     create: true
     fields :
-        collection: tutorials
       - {name: title, label: Title}
+      - {name: slug, label: Slug, widget: text}
+      - {name: date, label: Date, widget: datetime, date_format: 'YYYY.MM', default: '06.2015'}
       - {name: description, label: Description, widget: text}
+      - {name: keywords, label: Keywords, widget: list}
+      - {name: tags, label: Tags, widget: list}
       - {name: thumb, label: Thumbnail, widget: image}
       - {name: body, label: Body, widget: markdown}
+      - {name: collection, label: Collection (Don't edit!), widget: string, default: tutorials}
+  - name: "service"
+    label: "Service"
+    folder: src/content/services
+    create: true
+    fields :
+      - {name: title, label: Title}
+      - {name: slug, label: Slug, widget: text}
+      - {name: order, label: Order, widget: text}
+      - {name: keywords, label: Keywords, widget: list}
+      - {name: thumb, label: Thumbnail, widget: image}
+      - {name: body, label: Body, widget: markdown}
+      - {name: collection, label: Collection (Don't edit!), widget: string, default: services}

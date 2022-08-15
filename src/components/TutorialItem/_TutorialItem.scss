@@ -1,0 +1,201 @@
+.tutorial-container {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-bottom: -2em;
+}
+
+.tutorial-item {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.tutorial-item:hover {
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-image {
+    background-color: rgba(0, 0, 0, 0.3);
+    flex: initial;
+}
+
+.tutorial-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    flex: 1;
+}
+
+.tutorial-description h2 {
+    font-family: $font-title;
+    padding-top: 0.8em;
+    padding-left: 1em;
+    padding-bottom: 1.2em;
+    padding-right: 1em;
+    margin-bottom: 0;
+    line-height: 1.2 !important;
+    font-size: 1.2em;
+    font-weight: normal;
+    text-align: left;
+}
+
+.tutorial-description a {
+    text-decoration: none;
+    color: black;
+}
+
+.tutorial-item p {
+    color: #555;
+    margin-top: 0 !important;
+    margin-bottom: 0em !important;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: left;
+}
+
+.tutorial-description hr {
+    background-color: #555;
+    margin-bottom: 0.2em;
+}
+
+.tutorial-tags {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding-top: 1em;
+    margin-bottom: 1em;
+}
+
+.tutorial-tags a {
+    text-decoration: none;
+    font-size: 0.75em;
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #555;
+    padding: 0.125em 0.6em 0.125em 1.7em;
+    margin-right: 0.3em;
+    border-radius: 1em;
+    background-image: url(http://localhost:8000/images/icons/icon-tag.svg);
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: center  left 0.5em;
+    margin-bottom: 0.4em;
+}
+
+.tutorial-tags a:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Desktop settings. */
+@media only screen and (min-width: 961px) {
+    .tutorial-item {
+        display: flex;
+        height: 10em;
+        margin-bottom: 2em;
+    }
+
+    .tutorial-image {
+        width: 10em;
+        height: 10em;
+    }
+
+    .tutorial-image .wp-post-image {
+        width: 10em;
+        height: 10em;
+    }
+
+    .tutorial-item-top-container {
+        position: absolute;
+        width: calc(100% - 10em);
+        top: 0;
+        left: 10em;
+        height: 10em;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tutorial-description h2 {
+        padding-bottom: 0.5em;
+        padding-left: 0.75em;
+        margin-left: 0em;
+        font-size: 1.5em;
+    }
+
+    .tutorial-tags {
+        padding-top: 0em;
+    }
+}
+
+/* When the display dips below column width but isn't mobile. */
+@media only screen and (max-width: 1344px) {
+    .tutorial-item {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
+    .tutorial-options-container {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}
+
+/* Phone and Tablet settings. */
+@media only screen and (max-width: 960px) {
+    .tutorial-item {
+        display: block;
+        height: auto;
+        position: relative;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .tutorial-container {
+        margin-top: 1.5em;
+        margin-bottom: -1.5em;
+    }
+
+    .tutorial-options-container {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
+    .tutorial-image {
+        width: 6.32em;
+        height: 6.32em;
+        float: left;
+        margin-right: 1em;
+    }
+
+    .tutorial-image .wp-post-image {
+        width: 6.32em;
+        height: 6.32em;
+    }
+
+    .tutorial-description {
+        display: block;
+    }
+
+    .tutorial-item-top-container {
+        position: absolute;
+        width: calc(100% - 6.32em);
+        height: 6.32em;
+        left: 6.32em;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tutorial-item-bottom-container {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 6.32em);
+        left: 0;
+        top: 6.32em;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}

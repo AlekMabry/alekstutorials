@@ -19,6 +19,8 @@ export default function IndexPage( { data } ) {
       <div class="page-container">
         <div class="page">
           <AboutHeader about={about}/>
+          <h1>FREELANCE SERVICES</h1>
+          <h1>PROJECTS</h1>
           <ProjectGallery projects={projects}/>
         </div>
       </div>
@@ -30,7 +32,7 @@ export default function IndexPage( { data } ) {
 
 export const query = graphql`
 query IndexPage {
-  allMarkdownRemark {
+  allMarkdownRemark(filter: {frontmatter: {collection: {eq: "projects"}}}) {
     nodes {
       frontmatter {
         slug

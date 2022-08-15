@@ -1,42 +1,18 @@
-
 .navbar-desktop-link {
     a {
         position: relative;
         text-decoration: none;
-        color: $color-navbar-text;
+        color: $color-navbar-text-background;
         font-size: 1em;
         font-weight: 300;
         padding: 1.5em 0.75em 1.5em 0.75em;
         display: block;
-    }
-}
 
-.navbar-desktop-link-background {
-    a {
-        color: $color-navbar-text-background;
+        &:hover {
+            color: $color-navbar-text;
+            border-bottom: 0.2em solid $color-selectable         ;
+            padding: 1.5em 0.75em 1.3em 0.75em;
+            margin-bottom:-0.2em;
+        }
     }
-}
-
-/* Underline hover animation. */
-@keyframes anim-navbar-desktop-link-grow {
-    from {
-        width: 0%;
-        left: 50%;
-    }
-    to {
-        width: 100%;
-        left: 0;
-    }
-}
-
-.navbar-desktop-link-underline {
-    background-color: white;
-    border: none;
-    width: 100%;
-    height: 0.2em;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    animation-name: anim-navbar-desktop-link-grow;
-    animation-duration: 0.15s;
 }
