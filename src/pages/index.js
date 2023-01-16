@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby';
-import '../style/style.scss';
+//import '../style/style.scss';
 
 import Navbar from '../components/Navbar/Navbar';
 import AboutHeader from '../components/AboutHeader/AboutHeader';
@@ -10,7 +10,8 @@ import Footer from '../components/Footer/Footer';
 import about from '../content/portfolio.yml';
 
 export default function IndexPage( { data } ) {
-  const projects = data.allMarkdownRemark.nodes;
+  const services = data.services.nodes;
+  const projects = data.projects.nodes;
 
   return (
     <body>
@@ -19,9 +20,7 @@ export default function IndexPage( { data } ) {
       <div class="page-container">
         <div class="page">
           <AboutHeader about={about}/>
-          <h1>FREELANCE SERVICES</h1>
-          <h1>PROJECTS</h1>
-          <ProjectGallery projects={projects}/>
+          <ProjectGallery services={services} projects={projects}/>
         </div>
       </div>
       </div>
@@ -32,9 +31,27 @@ export default function IndexPage( { data } ) {
 
 export const query = graphql`
 query IndexPage {
-  allMarkdownRemark(filter: {frontmatter: {collection: {eq: "projects"}}}) {
+  services: allMarkdownRemark(
+    filter: {frontmatter: {collection: {eq: "services"}}}
+    sort: {fields: frontmatter___order}
+  ) {
     nodes {
       frontmatter {
+        collection
+        title
+        keywords
+        slug
+        thumb
+      }
+    }
+  }
+  projects: allMarkdownRemark(
+    filter: {frontmatter: {collection: {eq: "projects"}}}
+    sort: {fields: frontmatter___date, order: DESC}
+  ) {
+    nodes {
+      frontmatter {
+        collection
         slug
         title
         thumb

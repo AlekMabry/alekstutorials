@@ -33,7 +33,7 @@ collections:
     label: "Tutorial"
     folder: src/content/tutorials
     create: true
-    fields :
+    fields:
       - {name: title, label: Title}
       - {name: slug, label: Slug, widget: text}
       - {name: date, label: Date, widget: datetime, date_format: 'YYYY.MM', default: '06.2015'}
@@ -47,7 +47,7 @@ collections:
     label: "Service"
     folder: src/content/services
     create: true
-    fields :
+    fields:
       - {name: title, label: Title}
       - {name: slug, label: Slug, widget: text}
       - {name: order, label: Order, widget: text}

@@ -57,3 +57,12 @@
     background-color: rgba(255, 255, 255, 0.9);
     width: 100%;
 }
+
+.project-service-label {
+    position: relative;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    color: $color-text-contrast-primary;
+    background-color: $color-selected;
+}
