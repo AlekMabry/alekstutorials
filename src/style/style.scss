@@ -1,15 +1,176 @@
-/* Global style and layouts
+/* Global style and layouts */
 @import './colors';
 @import './fonts';
-@import './variables';
-@import './reset';
-@import './layout';
 
-/* Components
-@import '../components/AboutHeader/AboutHeader';
-@import '../components/Footer/Footer';
-@import '../components/NavbarDesktop/NavbarDesktop';
-@import '../components/NavbarDesktopLink/NavbarDesktopLink';
-@import '../components/ProjectGallery/ProjectGallery';
-@import '../components/ProjectThumbnail/ProjectThumbnail';
-@import '../components/TutorialItem/TutorialItem'; */
+@import "~bootstrap-scss/mixins/banner";
+@include bsBanner("");
+
+/* Configuration */
+@import "~bootstrap-scss/functions";
+
+$navbar-padding-y: 0;
+$dark: #000000;
+
+@import "~bootstrap-scss/variables";
+@import "~bootstrap-scss/maps";
+@import "~bootstrap-scss/mixins";
+@import "~bootstrap-scss/utilities";
+
+/* Layout & components */
+@import "~bootstrap-scss/root";
+@import "~bootstrap-scss/reboot";
+@import "~bootstrap-scss/type";
+@import "~bootstrap-scss/images";
+@import "~bootstrap-scss/containers";
+@import "~bootstrap-scss/grid";
+@import "~bootstrap-scss/tables";
+@import "~bootstrap-scss/forms";
+@import "~bootstrap-scss/buttons";
+@import "~bootstrap-scss/transitions";
+@import "~bootstrap-scss/dropdown";
+@import "~bootstrap-scss/button-group";
+@import "~bootstrap-scss/nav";
+@import "~bootstrap-scss/navbar";
+@import "~bootstrap-scss/card";
+@import "~bootstrap-scss/accordion";
+@import "~bootstrap-scss/breadcrumb";
+@import "~bootstrap-scss/pagination";
+@import "~bootstrap-scss/badge";
+@import "~bootstrap-scss/alert";
+@import "~bootstrap-scss/progress";
+@import "~bootstrap-scss/list-group";
+@import "~bootstrap-scss/close";
+@import "~bootstrap-scss/toasts";
+@import "~bootstrap-scss/modal";
+@import "~bootstrap-scss/tooltip";
+@import "~bootstrap-scss/popover";
+@import "~bootstrap-scss/carousel";
+@import "~bootstrap-scss/spinners";
+@import "~bootstrap-scss/offcanvas";
+@import "~bootstrap-scss/placeholders";
+
+/* Helpers */
+@import "~bootstrap-scss/helpers";
+
+/* Utilities */
+@import "~bootstrap-scss/utilities/api";
+
+@import "fonts";
+@import "colors";
+
+.navbar-desktop {
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+* {
+  font-family: $font-reading;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-title !important;
+}
+
+a {
+    h1, h2, h3, h4, h5, h6 {
+        border: none;
+        text-decoration: none;
+    }
+}
+
+.text-light-link {
+    color: $color-light;
+    
+    &:hover {
+        color: $color-light-hover;
+    }
+}
+
+.text-title-link {
+    color: #000;
+
+    &:hover {
+        color: $color-blue;
+    }
+}
+
+.card-body {
+    a {
+        color: #000;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-selectable;
+        }
+    }
+}
+
+.mt-n2 {
+    margin-top: -0.5rem;
+}
+
+.navbar-logo-container {
+  display: flex;
+  align-items: center;
+  
+  h1 {
+      padding-left: 0.5em;
+      font-family: $font-title;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      margin: 0;
+
+      &:before {
+        width: 0px;
+      }
+  }
+
+  img {
+      width: 2.5em;
+      height: 2.5em;
+  }
+}
+
+.table-of-contents {
+  p {
+    margin: 0 0 0 0;
+  }
+
+  ul {
+    @extend .list-unstyled;
+    margin-bottom: 0;
+  }
+}
+
+article {
+    font-size: 14px;
+    line-height: 2;
+
+    a {
+        color: $color-selectable;
+        border-bottom: 1px dotted $color-selectable;
+        text-decoration: none;
+    }
+
+    a.anchor.before {
+        border-bottom: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+    font-family: $font-title !important;
+    font-weight: 300;
+
+        &:before {
+            content: "";
+            width: 4px;
+            height: 1em;
+            margin-right: 8px;
+            background: $color-selected;
+            display: inline-block;
+            transform: translateY(0.1em);
+        }
+    }
+};
+
+@import "highlight.scss";

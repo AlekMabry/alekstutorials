@@ -6,8 +6,8 @@ keywords: ['RoboRIO', 'BeagleBone', 'UDP']
 tags: ['BeagleBone', 'Java', 'Python']
 description: Learn how to use UDP through the robot’s network to communicate
   with the BeagleBone from the RoboRIO.
-thumb: images/uploads/tutorial_roborio_thumb.svg
-collection: tutorials
+thumb: images/uploads/beaglebone_with_roborio_thumb.jpg
+collection: articles
 ---
 Embedded devices such as BeagleBones are often used in FRC to handle computer vision while the RoboRIO controls the robot. In this tutorial we will create a framework for a RoboRIO to request data from a BeagleBone through the robot’s onboard router. While this tutorial covers the programming aspects, please be sure to check the yearly documentation on how to correctly setup these devices, as the router may act differently when connected to the competition network.
 

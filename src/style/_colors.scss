@@ -7,6 +7,9 @@ $color-footer-shadow: #080808;
 $color-footer-title: #FFF;
 $color-footer-text: #BBB;
 
+$color-light: #999;
+$color-light-hover: #DDD;
+
 $color-about-background: rgba(255, 255, 255, 0.8);
 
 $color-background-primary: #000;
@@ -20,5 +23,8 @@ $color-text-secondary: #444;
 
 $color-selectable: #29ABE2;
 $color-selected: #21B14B;
+
+$color-blue: #29ABE2;
+$color-green: #21B14B;
 
 $gradient-primary: linear-gradient(45deg, $color-selectable, $color-selected)

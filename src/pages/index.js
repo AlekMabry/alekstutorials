@@ -1,61 +1,63 @@
-import React from 'react'
-import { graphql } from 'gatsby';
-//import '../style/style.scss';
+import React from "react"
+import { graphql, Link } from "gatsby"
 
-import Navbar from '../components/Navbar/Navbar';
-import AboutHeader from '../components/AboutHeader/AboutHeader';
-import ProjectGallery from '../components/ProjectGallery/ProjectGallery';
-import Footer from '../components/Footer/Footer';
+import '../style/style.scss';
+import { Container, Row, Col, Card, Ratio} from 'react-bootstrap';
+import ANavbar from '../components/ANavbar';
+import AFooter from "../components/AFooter";
 
-import about from '../content/portfolio.yml';
+export default function TutorialsPage( { data } ) {
+  const tutorials = data.allMarkdownRemark.nodes;
 
-export default function IndexPage( { data } ) {
-  const services = data.services.nodes;
-  const projects = data.projects.nodes;
+  const cards = tutorials.map((tutorial) =>
+    <Col md={3} mb={1}>
+      <div className="pt-4 h-100">
+        <Card className="h-100">
+          <Ratio className="mt-3" aspectRatio="16x9">
+            <Card.Img variant="top" aspectRatio="16x9" src={tutorial.frontmatter.thumb}/>
+          </Ratio>
+          <Card.Body>
+            <Link to={tutorial.frontmatter.slug}>
+              <Card.Title>{tutorial.frontmatter.title}</Card.Title>
+            </Link>
+            <Card.Text className="text-secondary">{tutorial.frontmatter.description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+    </Col>
+  );
 
   return (
     <body>
-      <div class='content'>
-      <Navbar logo={about.logo}/>
-      <div class="page-container">
-        <div class="page">
-          <AboutHeader about={about}/>
-          <ProjectGallery services={services} projects={projects}/>
-        </div>
-      </div>
-      </div>
-      <Footer/>
+      <ANavbar/>
+      <Container expand="md" className="mb-4">
+        <h1>Articles</h1>
+        <Row className="mt-n2">
+          {cards}
+        </Row>
+      </Container>
+      <AFooter/>
     </body>
   );
 }
 
 export const query = graphql`
-query IndexPage {
-  services: allMarkdownRemark(
-    filter: {frontmatter: {collection: {eq: "services"}}}
-    sort: {fields: frontmatter___order}
-  ) {
-    nodes {
-      frontmatter {
-        collection
-        title
-        keywords
-        slug
-        thumb
-      }
-    }
-  }
-  projects: allMarkdownRemark(
-    filter: {frontmatter: {collection: {eq: "projects"}}}
+query TutorialsPage {
+  allMarkdownRemark(
+    filter: {frontmatter: {collection: {eq: "articles"}}}
     sort: {fields: frontmatter___date, order: DESC}
   ) {
     nodes {
       frontmatter {
-        collection
-        slug
         title
+        keywords
+        date
+        description
+        slug
+        tags
         thumb
       }
     }
   }
-}`;
+}
+`;

@@ -6,8 +6,8 @@ keywords: ['OpenCV', 'Robot', 'Line']
 tags: ['BeagleBone', 'OpenCV', 'Python']
 description: Learn how to use UDP through the robot’s network to communicate
   with the BeagleBone from the RoboRIO.
-thumb: images/uploads/tutorial_linefollower_thumb.svg
-collection: tutorials
+thumb: images/uploads/line_following_robot_thumb.jpg
+collection: articles
 ---
 # Supplies
 - A BeagleBone running Debian

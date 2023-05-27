@@ -7,6 +7,6 @@ tags: ['BeagleBone']
 description: Learn how to access the BeagleBone's terminal with SSH and use X to
   remotely control windows.
 thumb: images/uploads/tutorial_x_thumb.svg
-collection: tutorials
+collection: articles
 ---
 Article coming soon!

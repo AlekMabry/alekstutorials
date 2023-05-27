@@ -10,28 +10,16 @@ collections:
   - name: settings
     label: Settings
     files:
-      - label: Portfolio Page
-        name: portfolio
-        file: src/content/portfolio.yml
+      - label: Settings
+        name: settings
+        file: src/content/settings.yml
         fields:
           - {name: logo, label: Site Logo, widget: image}
           - {name: pfp, label: Profile Picture, widget: image}
           - {name: about, label: About Description, widget: text}
-  - name: "project"
-    label: "Project"
-    folder: src/content/projects
-    create: true
-    fields:
-      - {name: title, label: Title}
-      - {name: slug, label: Slug, widget: text}
-      - {name: date, label: Date, widget: datetime, date_format: 'YYYY.MM', default: '06.2015'}
-      - {name: keywords, label: Keywords, widget: list}
-      - {name: thumb, label: Thumbnail, widget: image}
-      - {name: body, label: Body, widget: markdown}
-      - {name: collection, label: Collection (Don't edit!), widget: string, default: projects}
-  - name: "tutorial"
-    label: "Tutorial"
-    folder: src/content/tutorials
+  - name: "article"
+    label: "Article"
+    folder: src/content/articles
     create: true
     fields:
       - {name: title, label: Title}
@@ -42,16 +30,4 @@ collections:
       - {name: tags, label: Tags, widget: list}
       - {name: thumb, label: Thumbnail, widget: image}
       - {name: body, label: Body, widget: markdown}
-      - {name: collection, label: Collection (Don't edit!), widget: string, default: tutorials}
-  - name: "service"
-    label: "Service"
-    folder: src/content/services
-    create: true
-    fields:
-      - {name: title, label: Title}
-      - {name: slug, label: Slug, widget: text}
-      - {name: order, label: Order, widget: text}
-      - {name: keywords, label: Keywords, widget: list}
-      - {name: thumb, label: Thumbnail, widget: image}
-      - {name: body, label: Body, widget: markdown}
-      - {name: collection, label: Collection (Don't edit!), widget: string, default: services}
+      - {name: collection, label: Collection (Don't edit!), widget: string, default: articles}
