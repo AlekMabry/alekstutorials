@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby"
-import { Container, Stack, Vr } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 
 export default function AFooter() {
     const year = new Date().getFullYear();

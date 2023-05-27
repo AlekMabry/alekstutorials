@@ -1,13 +1,12 @@
 import React from 'react';
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar, Alert } from "react-bootstrap";
 
 import config from '../content/settings.yml';
 
 export default function ANavbar( )
 {
     return (
+        <>
         <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="mb-3">
             <Container>
                 <Navbar.Brand className="navbar-logo-container">
@@ -24,5 +23,9 @@ export default function ANavbar( )
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        <Container expand="md">
+            <Alert key="info" expand="md">This site is under development, some content may be missing!</Alert>
+        </Container>
+        </>
     );
 }
