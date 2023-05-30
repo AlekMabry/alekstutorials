@@ -137,6 +137,10 @@ a {
     margin: 0 0 0 0;
   }
 
+  a {
+    color: $color-selectable;
+  }
+  
   ul {
     @extend .list-unstyled;
     margin-bottom: 0;

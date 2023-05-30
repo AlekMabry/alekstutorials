@@ -4,8 +4,7 @@ slug: line-following-robot-with-opencv
 date: '2016.09'
 keywords: ['OpenCV', 'Robot', 'Line']
 tags: ['BeagleBone', 'OpenCV', 'Python']
-description: Learn how to use UDP through the robot’s network to communicate
-  with the BeagleBone from the RoboRIO.
+description: Learn how to build a line following robot with the BeagleBone using OpenCV.
 thumb: images/uploads/line_following_robot_thumb.jpg
 collection: articles
 ---

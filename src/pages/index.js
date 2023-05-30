@@ -10,7 +10,7 @@ export default function TutorialsPage( { data } ) {
   const tutorials = data.allMarkdownRemark.nodes;
 
   const cards = tutorials.map((tutorial) =>
-    <Col md={3} mb={1}>
+    <Col xs={12} sm={6} md={4} lg={3} mb={1}>
       <div className="pt-4 h-100">
         <Card className="h-100">
           <Ratio className="mt-3" aspectRatio="16x9">
@@ -28,7 +28,7 @@ export default function TutorialsPage( { data } ) {
   );
 
   return (
-    <body>
+    <body className="d-flex flex-column min-vh-100">
       <ANavbar/>
       <Container expand="md" className="mb-4">
         <h1>Articles</h1>
