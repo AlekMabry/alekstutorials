@@ -151,6 +151,10 @@ article {
     font-size: 14px;
     line-height: 2;
 
+    img {
+      max-width: 100%;
+    }
+
     a {
         color: $color-selectable;
         border-bottom: 1px dotted $color-selectable;
