@@ -8,6 +8,8 @@ description: Learn how to build a line following robot with the BeagleBone using
 thumb: images/uploads/line_following_robot_thumb.jpg
 collection: articles
 ---
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q7b_NoyBJBo" frameborder="0" allowfullscreen=""></iframe>
+
 # Supplies
 - A BeagleBone running Debian
 - Mini USB cable
@@ -23,7 +25,7 @@ collection: articles
 For these next steps you need access to the BeagleBone’s terminal. This is commonly done through the Cloud9 or SSH interface. Cloud9 is a web interface that provides an IDE and terminal. Alternatively if you have X server installed on your computer, you can X forward through SSH to view live OpenCV output from the BeagleBone, which is what I will use for this tutorial.
 
 Plug in the webcam before you power on the BeagleBone, then connect the BeagleBone to your computer. On Windows you will need to use PuTTY to X forward through SSH, however on MacOS and Linux you can use the following command:
-```
+```bash
 you@your-computer:~$ ssh -X debian@192.168.7.2
 ```
 
@@ -31,21 +33,23 @@ The default BeagleBone username is `debian` and the password is `temppwd`.
 
 # Writing the Line Tracking Program
 Make a new directory for the project:
-```
+```bash
 debian@192.168.7.2:~$ mkdir lineFollower
 ```
 
 To enter the directory use:
-```
+```bash
 debian@192.168.7.2:~$ cd lineFollower
 ```
 
 Now make the python file `lineTracker.py`:
-```
+```bash
 debian@192.168.7.2:~/lineFollower$ nano lineTracker.py
 ```
 
 Face your camera at a white background, then wave a black object in front of the screen. It should show the largest black blob detected with it's center coordinates shown by two blue lines. In the terminal it should be outputting `Turn Left` or `Turn Right` depending on the horizontal offset of the "line" from the center.
+
+![Frame from Line Tracker](images/uploads/line_following_robot_frame.jpg)
 
 You can end the program by pressing `q` or holding `ctrl+c`.
 
@@ -53,25 +57,25 @@ You can end the program by pressing `q` or holding `ctrl+c`.
 Let's break it down.
 
 Start by importing required libraries. `numpy` is the math library and `cv2` is OpenCV.
-```
+```python
 import numpy as np
 import cv2
 ```
 
 Next, setup the video feed. A particular camera can be selected, but in this tutorial `-1` will be used to select the first available camera. To decrease the computation required, a resolution of `160 x 120` will be used.
-```
-video_capture = cv2.VideoCapture(-1)
+```python
+video_capture = cv2.VideoCapture(0)
 video_capture.set(3, 160)
 video_capture.set(4, 120)
 ```
 
 Start a loop:
-```
+```python
 while (True):
 ```
 
 Now capture the current frame and crop it. This is so that the program is only analyzing the segment of line closest to the camera.
-```
+```python
     # Capture the frames
     ret, frame = video_capture.read()
 
@@ -80,7 +84,7 @@ Now capture the current frame and crop it. This is so that the program is only a
 ```
 
 Since we are looking for black lines on a white surface, the image can be converted to grayscale. Next a gaussian blur is applied to eliminate noise from the image.
-```
+```python
     # Convert to grayscale
     gray = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
 
@@ -89,19 +93,19 @@ Since we are looking for black lines on a white surface, the image can be conver
 ```
 
 Next we will threshold the image to create a binary image. Any pixel below a value of 60 (dark) will become white (true), and any color above that will become black (false).
-```
+```python
     # Color thresholding
     ret,thresh = cv2.threshold(blur,60,255,cv2.THRESH_BINARY_INV)
 ```
 
 Now we need to detect the continuous blobs of white pixels to find their center. This can be done with `cv2.findContours()`. This operation can be destructive to the image, so a copy of the image will be given instead.
-```
+```python
     # Find the contours of the frame
     contours, hierarchy = cv2.findContours(thresh.copy(), 1, cv2.CHAIN_APPROX_NONE)
 ```
 
 Now we sort the contours to find the largest blob which should be our line, then calculate the coordinate of it's center.
-```
+```python
     # Find the biggest contour (if detected)
     if len(contours) > 0:
     c = max(contours, key=cv2.contourArea)
@@ -112,14 +116,14 @@ Now we sort the contours to find the largest blob which should be our line, then
 ```
 
 For debugging purposes, draw the contours and crosshair onto the initial cropped image:
-```
+```python
         cv2.line(crop_img,(cx,0),(cx,720),(255,0,0),1)
         cv2.line(crop_img,(0,cy),(1280,cy),(255,0,0),1)
         cv2.drawContours(crop_img, contours, -1, (0,255,0), 1)
 ```
 
 Now the robot calculates if it should turn to remain on track with the line:
-```
+```python
         if cx >= 120:
             print("Turn Left!")
 
@@ -131,13 +135,13 @@ Now the robot calculates if it should turn to remain on track with the line:
 ```
 
 And if the robot does not see the line:
-```
+```python
     else:
         print("I don't see the line!")
 ```
 
 Last but not least, display the resulting frame:
-```
+```python
     # Display the resulting frame
     cv2.imshow('frame',crop_img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -147,23 +151,32 @@ Last but not least, display the resulting frame:
 # Wiring the Robot
 Start by setting up the power source. Use a `7805` voltage regulator to regulate the voltage to 5V. The `7805` requires an input voltage greater than 7V to regulate down to 5V, so be sure to use a battery pack of appropriate size.
 
+![Breadboard Power](images/uploads/line_following_robot_power.png)
 
+This robot will use a `L293D` for the motor driver:
 
-This robot will use a `L293D` motor driver chip, here are the pinouts of the chip:
+![Motor Driver Pinout](images/uploads/line_following_robot_motor_driver.png)
 
 Next attach the motors and `L293D` motor driver:
 
+![Breadboard Motor Driver](images/uploads/line_following_robot_connected_motors.jpg)
+
 Then add the BeagleBone:
 
+![BeagleBone Connected to Breadboard](images/uploads/line_following_robot_connected_beaglebone.png) 
+
 # Assembling the Robot
+
+![Assembled Robot](images/uploads/line_following_robot_assembled.png) 
+
 ## Adding Motor Control to the Tracking Program
 Create `lineFollower_withMotors.py`:
-```
+```bash
 debian@192.168.7.2:~/lineFollower$ nano lineFollower_withMotors.py
 ```
 
 Paste this code into the editor `ctrl+shift+v`.
-```
+```python
 import numpy as np
 import cv2
 import Adafruit_BBIO.GPIO as GPIO
@@ -240,8 +253,9 @@ while (True):
 You can exit the Nano editor by pressing `ctrl+x` then `y`.
 
 Now you can run the program with:
-```
+```bash
 debian@192.168.7.2:~/lineFollower$ python lineFollower_withMotors.py
 ```
 
-Now put your robot on the test track and watch it go! If you find that your robot is spinning circles then simply flip the polarity of your motor wires. Here is some footage of my robot following a track:
+Now put your robot on the test track and watch it go! If you find that your
+robot is spinning circles then simply flip the polarity of your motor wires.

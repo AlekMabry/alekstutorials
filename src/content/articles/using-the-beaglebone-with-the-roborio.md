@@ -21,14 +21,14 @@ Let’s create a RoboRIO program that sends a request to the BeagleBone, then re
 
 Let's start with the imports:
 
-```
+```java
 import java.io.*;
 import java.net.*;
 ```
 
 In the Robot class:
 
-```
+```java
 // Buffers
 DatagramSocket serverSocket;
 byte[] receiveData;
@@ -37,7 +37,7 @@ byte[] sendData;
 
 In robotInit():
 
-```
+```java
 // Setup the BeagleBone Communications
 try {
     serverSocket = new DatagramSocket(3641);    //Choose a port for your BeagleBone to send packets to!
@@ -50,7 +50,7 @@ sendData = new byte[256];
 
 To send data:
 
-```
+```java
 // Send Data
 InetAddress IPAddress = InetAddress.getByName("beaglebone.local");
 int port = 3641;
@@ -66,7 +66,7 @@ try {
 
 To receive data:
 
-```
+```java
 // Receive Data
 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 try {
@@ -87,18 +87,16 @@ Occasionally the UDP packets will contain the message but with extra filler char
 
 ![Received UDP message with null characters after.](images/uploads/garbled_udp.jpg)
 
-
-
 # Connecting to the BeagleBone
 
 For these next steps you need access to the BeagleBone’s terminal. This is commonly done through the Cloud9 or SSH interface. Cloud9 is a web interface that provides an IDE and terminal. Alternatively if you have X server installed on your computer, you can SSH with X to view live OpenCV output from the BeagleBone.
 
 To use the Cloud9 IDE, make sure you are connected to the router and visit this URL in your browser:
-```
+```bash
 beaglebone.local:3000
 ```
 On MacOS and Linux you can connect with SSH using the following command. Remove the `-X` option for a regular SSH connection without X window viewing capabilities. The password for the default user `debian` is `temppwd`.
-```
+```bash
 you@your-computer:~$ ssh -X debian@beaglebone.local
 ```
 
@@ -114,7 +112,7 @@ debian@beaglebone.local:~$ nano VisionCore.py
 To exit the Nano editor you hold `ctrl+x`, then press `y` to save the file.
 
 This program is fairly simple:
-```
+```python
 import numpy as np
 import cv2
 import sys
@@ -165,7 +163,7 @@ while(True):
         break
 ```
 You can create a function for each OpenCV algorithm your robot will need. Below is an example function that returns how much the robot must turn to follow a line seen through the webcam. This particular algorithm is further explained in the line following tutorial.
-```
+```python
 import numpy as np
 import cv2
 
@@ -211,10 +209,10 @@ def lineOffset(ret, frame):
         return 999
 ```
 To run this program from the terminal run:
-```
+```bash
 debian@beaglebone.local:~$ python VisionCore.py
 ```
 
-You can quit the program with `ctrl+c`
+You can quit the program with `ctrl+c`.
 
 Good luck using this to expand the capabilties of your FRC robot!

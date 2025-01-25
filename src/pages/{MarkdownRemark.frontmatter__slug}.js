@@ -31,16 +31,13 @@ export default function ArticlePage( {data} )
                             <Link to="/">Articles</Link> &#187; {articleInfo.title}
                             <h1>{articleInfo.title}</h1>
                             <hr></hr>
-                            <div className="d-xl-none" dangerouslySetInnerHTML={{ __html: data.article.tableOfContents }}></div>
-                            <div dangerouslySetInnerHTML={{ __html: article }}></div>
-                        </div>
-                        <div className="col-3 d-none d-xl-block">
-                            <Card>
-                                <Card.Body className="bg-gray bg-light">
-                                    If you're running AdBlock, please consider whitelisting this site if
-                                    you'd like to support my tutorials!
-                                </Card.Body>
+                            <Card className="bg-light d-xl-none">
+                                <Card.Body>
+                                    <div className="table-of-contents" dangerouslySetInnerHTML={{ __html: data.article.tableOfContents }}></div>
+                              </Card.Body>
                             </Card>
+                            <p></p>
+                            <div dangerouslySetInnerHTML={{ __html: article }}></div>
                         </div>
                     </Row>
                 </Container>

@@ -18,14 +18,10 @@ export default function ANavbar( )
                     <Nav className="me-auto"/>
                     <Nav>
                         <Nav.Link href=".">Articles</Nav.Link>
-                        <Nav.Link href="contact">Contact</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        <Container expand="md">
-            <Alert key="info" expand="md">This site is under development, some content may be missing!</Alert>
-        </Container>
         </>
     );
 }
